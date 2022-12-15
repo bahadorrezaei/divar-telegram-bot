@@ -23,8 +23,8 @@ TOKENS = list()
 
 def get_data(page=None):
     api_url = URL
-    if page:
-        api_url += f"&page={page}"
+    #if page:
+        #api_url += f"&page={page}"
     response = requests.get(api_url)
     return response
 
@@ -107,9 +107,10 @@ if __name__ == "__main__":
     logging.info(datetime.datetime.now())
     tokens = load_tokens()
     logging.info(len(tokens))
-    pages = [2, ""]
-    for page in pages:
-        data = get_data_page(page)
-        tokens = process_data(data, tokens)
+    #pages = [2, ""]
+    page = None
+    #for page in pages:
+     data = get_data_page(page)
+     tokens = process_data(data, tokens)
 
     save_tokns(tokens)
